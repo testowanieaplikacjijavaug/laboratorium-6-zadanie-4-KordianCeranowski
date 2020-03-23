@@ -18,7 +18,7 @@ class FractionAssertJTest {
         fraction = new Fraction(1,1);
     }
 
-    @DisplayName("Value of Test, more than")
+    @DisplayName("Double value is more or equal to")
     @ParameterizedTest(name = "Checking if value of fraction {0}/{1} is greater or equal to {2}")
     @CsvSource({
             "10, 2, 1",
@@ -34,11 +34,11 @@ class FractionAssertJTest {
             "10, 2, 2",
             "30, 3, 6"
     })
-    void isValueGreaterThan(int a, int b, int expected) {
+    void isValueGreaterOrEqualTo(int a, int b, int expected) {
         FractionAssert.assertThat(Fraction.of(a, b)).isMoreThan(expected).isEqualTo(expected);
     }
 
-    @DisplayName("Value of Test, less or equal to")
+    @DisplayName("Double value is less or equal to")
     @ParameterizedTest(name = "Checking if value of fraction {0}/{1} is less or equal to {2}")
     @CsvSource({
             "10, 2, 10",
@@ -54,7 +54,7 @@ class FractionAssertJTest {
             "10, 2, 50",
             "30, 3, 60"
     })
-    void isValueSmallerThan(int a, int b, int expected) {
+    void isValueSmallerOrEqualTo(int a, int b, int expected) {
         FractionAssert.assertThat(Fraction.of(a, b)).isLessThan(expected).isEqualTo(expected);
     }
 
