@@ -125,9 +125,21 @@ public class FractionHamcrestTest {
             "1, 2",
             "3, 3"
     })
-    void multiplyTest(int a, int b) {
+    void IsStringInFractionFormatTest(int a, int b) {
         assertThat(Fraction.of(a, b).toString(), is(IsStringInFractionFormat.fractionFormat()));
     }
+
+    @DisplayName("Checking if fraction is a test")
+    @ParameterizedTest(name = "Checking if fraction of {0} and {1} is a special one")
+    @CsvSource({
+            "1, 2",
+            "1, 3",
+            "1, 1"
+    })
+    void IsFractionSpecial(int a, int b) {
+        assertThat(Fraction.of(a, b), is(IsFractionSpecial.specialFraction()));
+    }
+
 
     @Test
     void equalsTest() {
