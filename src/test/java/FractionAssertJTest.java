@@ -14,8 +14,48 @@ class FractionAssertJTest {
     private Fraction fraction;
 
     @BeforeEach
-    void setUp() throws Exception{
+    void setUp(){
         fraction = new Fraction(1,1);
+    }
+
+    @DisplayName("Value of Test, more than")
+    @ParameterizedTest(name = "Checking if value of fraction {0}/{1} is greater or equal to {2}")
+    @CsvSource({
+            "10, 2, 1",
+            "5, 1, 3",
+            "30, 2, 1",
+            "120, 6, 5",
+            "40, 8, 1",
+            "50, 2, 2",
+            "10, 5, 1",
+            "80, 2, 3",
+            "40, 8, 1",
+            "60, 6, 1",
+            "10, 2, 5",
+            "30, 3, 6"
+    })
+    void isValueGreaterThan(int a, int b, int expected) {
+        FractionAssert.assertThat(Fraction.of(a, b)).isMoreThan(expected).isEqualTo(expected);
+    }
+
+    @DisplayName("Value of Test, less or equal to")
+    @ParameterizedTest(name = "Checking if value of fraction {0}/{1} is less than {2}")
+    @CsvSource({
+            "10, 2, 10",
+            "5, 1, 30",
+            "30, 2, 100",
+            "12, 6, 50",
+            "40, 8, 10",
+            "5, 2, 20",
+            "10, 5, 10",
+            "8, 2, 30",
+            "40, 8, 10",
+            "60, 6, 10",
+            "10, 2, 50",
+            "30, 3, 60"
+    })
+    void isValueSmallerThan(int a, int b, int expected) {
+        FractionAssert.assertThat(Fraction.of(a, b)).isLessThan(expected).isEqualTo(expected);
     }
 
     @Test
