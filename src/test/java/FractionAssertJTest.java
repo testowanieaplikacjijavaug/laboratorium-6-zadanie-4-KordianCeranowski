@@ -31,7 +31,7 @@ class FractionAssertJTest {
             "80, 2, 3",
             "40, 8, 1",
             "60, 6, 1",
-            "10, 2, 5",
+            "10, 2, 2",
             "30, 3, 6"
     })
     void isValueGreaterThan(int a, int b, int expected) {
@@ -39,7 +39,7 @@ class FractionAssertJTest {
     }
 
     @DisplayName("Value of Test, less or equal to")
-    @ParameterizedTest(name = "Checking if value of fraction {0}/{1} is less than {2}")
+    @ParameterizedTest(name = "Checking if value of fraction {0}/{1} is less or equal to {2}")
     @CsvSource({
             "10, 2, 10",
             "5, 1, 30",
@@ -50,7 +50,7 @@ class FractionAssertJTest {
             "10, 5, 10",
             "8, 2, 30",
             "40, 8, 10",
-            "60, 6, 10",
+            "60, 6, 15",
             "10, 2, 50",
             "30, 3, 60"
     })
