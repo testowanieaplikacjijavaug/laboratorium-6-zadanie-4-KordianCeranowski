@@ -109,6 +109,26 @@ public class FractionHamcrestTest {
         assertThat(result.toString(), is("2/3"));
     }
 
+    @DisplayName("toString Test")
+    @ParameterizedTest(name = "Checking if fraction of {0} and {1} prints in right format")
+    @CsvSource({
+            "1, 2",
+            "5, 15",
+            "3, 2",
+            "12, 6",
+            "4, 8",
+            "5, 2",
+            "1, 5",
+            "8, 2",
+            "4, 8",
+            "6, 6",
+            "1, 2",
+            "3, 3"
+    })
+    void multiplyTest(int a, int b) {
+        assertThat(Fraction.of(a, b).toString(), is(IsStringInFractionFormat.fractionFormat()));
+    }
+
     @Test
     void equalsTest() {
         final Fraction result = Fraction.of(2, 3);
