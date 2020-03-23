@@ -1,0 +1,18 @@
+language: java
+install: true
+
+os: linux
+dist: trusty
+jdk: openjdk8
+
+notifications:
+  email: false
+
+before_install:
+  - chmod +x gradlew
+
+script:
+  - ./gradlew build
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
